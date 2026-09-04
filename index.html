@@ -265,6 +265,36 @@
   footer a{color:var(--pine-2); font-weight:700; text-decoration:none;}
   body[data-theme="dark"] footer a{color:var(--mint);}
   footer a:hover{text-decoration:underline;}
+  /* Leadership certificate proof */
+.role-proof{
+  margin-top:18px;
+  display:inline-flex;
+  flex-direction:column;
+  gap:7px;
+}
+
+.proof-image{
+  width:210px;
+  height:130px;
+  object-fit:cover;
+  border:1px solid var(--line);
+  border-radius:9px;
+  background:var(--bg-card);
+  padding:4px;
+  cursor:pointer;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+
+.proof-image:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 24px -16px rgba(16,27,61,0.4);
+}
+
+.proof-label{
+  font-size:0.75rem;
+  color:var(--muted);
+  font-family:'JetBrains Mono', monospace;
+}
 </style>
 </head>
 <body data-theme="light">
@@ -318,7 +348,7 @@
 
       <div class="about-col">
         <h2>About Me</h2>
-        <p>Hafeezullah Ehsan is a computer science graduate specializing in machine learning and natural language processing. He builds systems that turn messy, unstructured text into something a machine can reason about — from a retrieval-augmented chatbot to a supervised text classifier — and ships them as working applications, not just notebooks.</p>
+        <p>I Hafeezullah Ehsan is computer science graduate specializing in machine learning, natural language processing and Data analytics. I build systems that turn messy, unstructured text into something a machine can reason about — from a retrieval-augmented chatbot to a supervised text classifier — and ships them as working applications, not just notebooks.</p>
         <p>He's currently deepening his fundamentals in NLP and supervised learning while looking for an entry-level ML role where he can work across the full pipeline: data, modeling, and deployment.</p>
         <a class="cv-btn" href="Hafeezullah_Ehsan_Resume.pdf" download>
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -410,36 +440,81 @@
         </div>
       </section>
 
-      <section id="experience">
-        <div class="section-head"><span class="num mono">02</span><h2>Experience</h2></div>
-        <div class="section-rule"></div>
-        <div class="timeline">
-          <div class="tl-item reveal">
-            <div class="tl-date">Jul 2024 — Aug 2024</div>
-            <div class="tl-role">Data Science and ML Intern</div>
-            <div class="tl-org">Avancod (Pvt) Ltd · Islamabad, Pakistan</div>
-            <ul>
-              <li>Performed data preprocessing and cleaning on raw datasets using NumPy and pandas to prepare structured inputs for supervised learning model training.</li>
-              <li>Implemented and evaluated machine learning algorithms, applying scikit-learn and statistical evaluation techniques to assess performance.</li>
-              <li>Created data visualizations to communicate patterns and insights from processed datasets to the team.</li>
-            </ul>
-          </div>
-          <div class="tl-item reveal">
-            <div class="tl-date">Feb 2024 — Mar 2024</div>
-            <div class="tl-role">Data Analytics and Visualization Job Simulation</div>
-            <div class="tl-org">Forage (Accenture) · Remote, United States</div>
-            <ul>
-              <li>Simulated a data analyst role advising a social media client, cleaning, modeling, and analyzing 7 datasets to identify content trends.</li>
-              <li>Prepared a presentation deck to communicate technical findings, key insights, and recommendations to stakeholders.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+     <section id="experience">
+  <div class="section-head"><span class="num mono">02</span><h2>Experience</h2></div>
+  <div class="section-rule"></div>
 
-      <section id="projects">
-        <div class="section-head"><span class="num mono">03</span><h2>Projects</h2></div>
-        <div class="section-rule"></div>
+  <div class="timeline">
 
+    <!-- President -->
+    <div class="tl-item reveal">
+      <div class="tl-date">2024 — 2025</div>
+      <div class="tl-role">President</div>
+      <div class="tl-org">UEMS · Pak-Austria Institute of Applied Sciences &amp; Technology</div>
+
+      <ul>
+        <li>Led the society's growth from <strong>20 to 900 members (45× growth)</strong>, establishing it as one of the largest student societies at Pak-Austria.</li>
+        <li>Directed multiple university-wide events, including events with <strong>3,000+ attendees</strong>, overseeing ticketing, security, team management, and on-ground operations.</li>
+        <li>Coordinated with university administration, students, and society teams to deliver large-scale events and performances that strengthened <strong>campus engagement and university visibility</strong>.</li>
+      </ul>
+
+      <div class="role-proof">
+        <a href="president-certificate.png" target="_blank" rel="noopener">
+          <img src="president-certificate.png"
+               class="proof-image"
+               alt="Appreciation Certificate — UEMS President, Session 2024-2025">
+        </a>
+        <span class="proof-label">Leadership Certificate · 2024–2025</span>
+      </div>
+    </div>
+
+    <!-- Director Administration & Events -->
+    <div class="tl-item reveal">
+      <div class="tl-date">2023 — 2024</div>
+      <div class="tl-role">Director Administration &amp; Events</div>
+      <div class="tl-org">UEMS · Pak-Austria Institute of Applied Sciences &amp; Technology</div>
+
+      <ul>
+        <li>Coordinated between <strong>university administration, society leadership, and students</strong> to plan and execute university-wide events and activities.</li>
+        <li>Managed event operations including <strong>logistics, ticketing, security, team coordination, and on-ground execution</strong>.</li>
+        <li>Organized and supported multiple events and performances, contributing to the society's expansion from <strong>20 to 900 members</strong>.</li>
+      </ul>
+
+      <div class="role-proof">
+        <a href="director-admin-events-certificate.jpeg" target="_blank" rel="noopener">
+          <img src="director-admin-events-certificate.jpeg"
+               class="proof-image"
+               alt="Appreciation Certificate — UEMS Director Admin Events, Session 2023-2024">
+        </a>
+        <span class="proof-label">Leadership Certificate · 2023–2024</span>
+      </div>
+    </div>
+
+    <!-- Data Science & ML Internship -->
+    <div class="tl-item reveal">
+      <div class="tl-date">Jul 2024 — Aug 2024</div>
+      <div class="tl-role">Data Science and ML Intern</div>
+      <div class="tl-org">Avancod (Pvt) Ltd · Islamabad, Pakistan</div>
+      <ul>
+        <li>Performed data preprocessing and cleaning on raw datasets using NumPy and pandas to prepare structured inputs for supervised learning model training.</li>
+        <li>Implemented and evaluated machine learning algorithms, applying scikit-learn and statistical evaluation techniques to assess performance.</li>
+        <li>Created data visualizations to communicate patterns and insights from processed datasets to the team.</li>
+      </ul>
+    </div>
+
+    <!-- Forage -->
+    <div class="tl-item reveal">
+      <div class="tl-date">Feb 2024 — Mar 2024</div>
+      <div class="tl-role">Data Analytics and Visualization Job Simulation</div>
+      <div class="tl-org">Forage (Accenture) · Remote, United States</div>
+      <ul>
+        <li>Simulated a data analyst role advising a social media client, cleaning, modeling, and analyzing 7 datasets to identify content trends.</li>
+        <li>Prepared a presentation deck to communicate technical findings, key insights, and recommendations to stakeholders.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
         <div class="project reveal">
           <h3>Student Mental Health Support Chatbot</h3>
           <div class="tags">
