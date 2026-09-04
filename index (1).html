@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hafeezullah Ehsan — Machine Learning Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F7F8F6;
+    --bg-card:#FFFFFF;
+    --bg-alt:#EEF1F6;
+    --ink:#14201B;
+    --muted:#5C6B64;
+    --line:#E2E7E3;
+
+    --pine:#101B3D;
+    --pine-2:#1B2E63;
+    --mint:#BFD0F5;
+    --gold:#4FD1C5;
+
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Plus Jakarta Sans', sans-serif;
+    font-size:16px;
+    line-height:1.65;
+    transition:background .25s ease, color .25s ease;
+  }
+  body[data-theme="dark"]{
+    --bg:#0F1512;
+    --bg-card:#16201B;
+    --bg-alt:#131C17;
+    --ink:#F2F5F3;
+    --muted:#9CB0A6;
+    --line:#233129;
+  }
+  a{color:inherit;}
+  .mono{font-family:'JetBrains Mono', monospace;}
+  h1,h2,h3{font-family:'Space Grotesk', sans-serif; font-weight:600; margin:0;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 32px;}
+
+  /* Top nav */
+  .navbar{
+    position:sticky; top:0; z-index:50;
+    background:var(--bg-card);
+    border-bottom:1px solid var(--line);
+  }
+  .navbar .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:74px;
+  }
+  .brand{font-size:1.15rem; font-weight:700;}
+  .navlinks{display:flex; gap:34px;}
+  .navlinks a{
+    text-decoration:none; font-weight:600; font-size:0.96rem; color:var(--ink);
+    opacity:0.82; transition:opacity .15s ease;
+  }
+  .navlinks a:hover{opacity:1;}
+  .nav-icons{display:flex; gap:18px; align-items:center;}
+  .icon-btn{
+    width:38px; height:38px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    border:1px solid var(--line); background:none; cursor:pointer;
+    color:var(--ink); transition:background .15s ease;
+  }
+  .icon-btn:hover{background:var(--line);}
+  @media (max-width:820px){ .navlinks{display:none;} }
+
+  /* Hero */
+  .hero{
+    background:
+      repeating-linear-gradient(135deg, rgba(255,255,255,0.035) 0 2px, transparent 2px 42px),
+      repeating-linear-gradient(45deg, rgba(255,255,255,0.035) 0 2px, transparent 2px 42px),
+      linear-gradient(160deg, var(--pine) 0%, var(--pine-2) 100%);
+    color:#fff;
+    padding:72px 0 88px;
+  }
+  .hero .wrap{
+    display:grid;
+    grid-template-columns:300px 1fr;
+    gap:64px;
+  }
+  @media (max-width:900px){
+    .hero .wrap{grid-template-columns:1fr; gap:40px;}
+  }
+
+  .profile-col{text-align:center;}
+  .avatar-wrap{position:relative; width:220px; height:220px; margin:0 auto 22px;}
+  .avatar{
+    width:220px; height:220px; border-radius:50%;
+    background:linear-gradient(135deg, #3B6FED, #8B5CF6);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Space Grotesk', sans-serif;
+    font-size:4rem; font-weight:700; color:#fff;
+    border:5px solid rgba(255,255,255,0.15);
+  }
+  .avatar-badge{
+    position:absolute; bottom:6px; right:6px;
+    width:48px; height:48px; border-radius:50%;
+    background:#0B1330;
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.4rem;
+    border:3px solid var(--pine);
+  }
+  .profile-col .p-name{font-size:1.5rem; font-weight:700; margin-bottom:4px;}
+  .profile-col .p-role{font-size:1rem; font-weight:600; color:var(--mint); margin-bottom:2px;}
+  .profile-col .p-org{font-size:0.92rem; color:rgba(255,255,255,0.65); margin-bottom:20px;}
+  .social-row{display:flex; gap:10px; justify-content:center; flex-wrap:wrap;}
+  .social-row a{
+    width:38px; height:38px; border-radius:50%;
+    border:1px solid rgba(255,255,255,0.3);
+    display:flex; align-items:center; justify-content:center;
+    text-decoration:none; color:#fff; transition:background .15s ease;
+  }
+  .social-row a:hover{background:rgba(255,255,255,0.15);}
+
+  .about-col h2{color:#fff; font-size:1.7rem; margin-bottom:20px;}
+  .about-col p{color:rgba(255,255,255,0.85); font-size:1.02rem; max-width:620px; margin-bottom:14px;}
+  .cv-btn{
+    display:inline-flex; align-items:center; gap:8px;
+    margin-top:10px; margin-bottom:36px;
+    padding:12px 20px; border-radius:10px;
+    background:rgba(0,0,0,0.28);
+    border:1px solid rgba(255,255,255,0.15);
+    color:#fff; text-decoration:none; font-weight:600; font-size:0.92rem;
+    transition:background .15s ease;
+  }
+  .cv-btn:hover{background:rgba(0,0,0,0.45);}
+
+  .mini-cols{display:grid; grid-template-columns:1fr 1fr; gap:40px;}
+  @media (max-width:560px){ .mini-cols{grid-template-columns:1fr;} }
+  .mini-cols h3{color:#fff; font-size:1.1rem; margin-bottom:14px;}
+  .mini-cols ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px;}
+  .mini-cols li{
+    display:flex; align-items:flex-start; gap:10px;
+    color:rgba(255,255,255,0.85); font-size:0.94rem;
+  }
+  .mini-cols .dot{
+    width:6px; height:6px; border-radius:50%; background:var(--gold);
+    margin-top:8px; flex-shrink:0;
+  }
+  .mini-cols .cap{flex-shrink:0; margin-top:1px;}
+
+  /* Sections below hero */
+  main section{padding:80px 0; border-bottom:1px solid var(--line);}
+  main section:last-of-type{border-bottom:none;}
+  main section:nth-of-type(even){background:var(--bg-alt);}
+  .section-head{display:flex; align-items:baseline; gap:12px; margin-bottom:8px;}
+  .section-head h2{font-size:1.7rem; position:relative;}
+  .section-head .num{font-family:'JetBrains Mono', monospace; font-size:0.85rem; color:var(--pine-2);}
+  body[data-theme="dark"] .section-head .num{color:var(--mint);}
+  .section-rule{
+    width:56px; height:3px; border-radius:3px;
+    background:linear-gradient(90deg, var(--pine-2), var(--gold));
+    margin-bottom:32px;
+  }
+
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .55s ease, transform .55s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1; transform:none; transition:none;}
+  }
+
+  /* Demo */
+  .demo{
+    border:1px solid var(--line); background:var(--bg-card); border-radius:14px;
+    padding:26px; max-width:640px;
+    box-shadow:0 20px 40px -28px rgba(11,59,46,0.35);
+  }
+  .demo-label{font-size:0.8rem; color:var(--muted); margin-bottom:14px;}
+  .demo input{
+    width:100%; font-family:'JetBrains Mono', monospace; font-size:0.95rem;
+    padding:11px 14px; border:1px solid var(--line); background:var(--bg);
+    color:var(--ink); border-radius:9px; outline:none;
+  }
+  .demo input:focus{border-color:var(--pine-2); box-shadow:0 0 0 3px rgba(15,74,58,0.15);}
+  .demo-results{margin-top:18px; display:flex; flex-direction:column; gap:12px; min-height:60px;}
+  .result-row{display:flex; align-items:center; gap:12px;}
+  .result-name{font-size:0.85rem; width:190px; flex-shrink:0; font-weight:500;}
+  .bar-track{flex:1; height:7px; background:var(--line); border-radius:4px; overflow:hidden;}
+  .bar-fill{height:100%; border-radius:4px; transition:width .4s ease; background:linear-gradient(90deg, var(--pine-2), var(--gold));}
+  .result-score{font-size:0.75rem; color:var(--muted); width:38px; text-align:right; font-family:'JetBrains Mono', monospace;}
+  .demo-hint{font-size:0.78rem; color:var(--muted); margin-top:16px;}
+
+  /* Skills */
+  .skill-block{margin-bottom:28px;}
+  .skill-block .tag-label{
+    font-size:0.75rem; font-weight:700; font-family:'JetBrains Mono', monospace;
+    margin-bottom:14px; display:inline-block; padding:5px 13px; border-radius:20px;
+    background:var(--pine); color:#fff; letter-spacing:0.02em;
+  }
+  .skill-pills{display:flex; flex-wrap:wrap; gap:9px; max-width:780px;}
+  .skill-pill{
+    font-size:0.88rem; font-weight:500; padding:7px 14px; border-radius:8px;
+    background:var(--bg); border:1px solid var(--line); color:var(--ink);
+    transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+  }
+  .skill-pill:hover{
+    transform:translateY(-2px);
+    border-color:var(--pine-2);
+    box-shadow:0 8px 18px -12px rgba(16,27,61,0.35);
+  }
+  body[data-theme="dark"] .skill-pill{background:var(--bg);}
+
+  /* Experience */
+  .timeline{position:relative; padding-left:28px;}
+  .timeline::before{content:''; position:absolute; left:5px; top:6px; bottom:6px; width:2px; background:linear-gradient(180deg, var(--pine), var(--gold));}
+  .tl-item{position:relative; margin-bottom:40px;}
+  .tl-item:last-child{margin-bottom:0;}
+  .tl-item::before{content:''; position:absolute; left:-28px; top:6px; width:12px; height:12px; background:var(--bg-card); border:3px solid var(--pine); border-radius:50%; z-index:1;}
+  .tl-date{font-size:0.78rem; color:var(--pine-2); margin-bottom:4px; font-weight:700; font-family:'JetBrains Mono', monospace;}
+  body[data-theme="dark"] .tl-date{color:var(--mint);}
+  .tl-role{font-size:1.08rem; font-weight:700; margin-bottom:2px;}
+  .tl-org{font-size:0.9rem; color:var(--muted); margin-bottom:12px;}
+  .tl-item ul{margin:0; padding-left:18px;}
+  .tl-item li{margin-bottom:7px; font-size:0.95rem;}
+
+  /* Projects */
+  .project{
+    border:1px solid var(--line); border-left:4px solid var(--gold);
+    background:var(--bg-card); padding:26px 28px; margin-bottom:22px; border-radius:12px;
+    box-shadow:0 16px 32px -28px rgba(11,59,46,0.3);
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .project:hover{
+    transform:translateY(-4px);
+    box-shadow:0 22px 40px -24px rgba(16,27,61,0.35);
+  }
+  .project.alt{border-left-color:var(--pine-2);}
+  .project h3{font-size:1.2rem; margin-bottom:10px;}
+  .tags{display:flex; flex-wrap:wrap; gap:7px; margin-bottom:16px;}
+  .tag{font-family:'JetBrains Mono', monospace; font-size:0.72rem; background:var(--bg); padding:4px 10px; border-radius:20px; color:var(--muted); font-weight:500; border:1px solid var(--line);}
+  .project ul{margin:0 0 16px; padding-left:18px;}
+  .project li{margin-bottom:7px; font-size:0.95rem;}
+  .project a.link{font-size:0.85rem; font-weight:700; color:var(--pine-2); text-decoration:none;}
+  body[data-theme="dark"] .project a.link{color:var(--mint);}
+  .project a.link:hover{text-decoration:underline;}
+
+  /* Education */
+  .edu-item{margin-bottom:20px;}
+  .edu-item .deg{font-weight:700; font-size:1.02rem;}
+  .edu-item .school{color:var(--muted); font-size:0.9rem;}
+  .cert-list{list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:12px;}
+  .cert-list li{
+    font-size:0.93rem; padding:14px 18px; border-radius:10px;
+    background:var(--bg-card); border:1px solid var(--line);
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:6px;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .cert-list li:hover{
+    transform:translateY(-2px);
+    box-shadow:0 12px 24px -18px rgba(16,27,61,0.3);
+  }
+  .cert-list .cert-date{color:var(--muted); font-size:0.8rem; font-family:'JetBrains Mono', monospace;}
+
+  footer{padding:40px 0; font-size:0.88rem; color:var(--muted); text-align:center;}
+  footer a{color:var(--pine-2); font-weight:700; text-decoration:none;}
+  body[data-theme="dark"] footer a{color:var(--mint);}
+  footer a:hover{text-decoration:underline;}
+</style>
+</head>
+<body data-theme="light">
+
+  <nav class="navbar">
+    <div class="wrap">
+      <div class="brand">Hafeezullah Ehsan</div>
+      <div class="navlinks">
+        <a href="#bio">Bio</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+      </div>
+      <div class="nav-icons">
+        <button class="icon-btn" id="searchBtn" title="Try the search demo" aria-label="Search">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+        <button class="icon-btn" id="themeBtn" title="Toggle dark mode" aria-label="Toggle theme">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="bio">
+    <div class="wrap">
+      <div class="profile-col">
+        <div class="avatar-wrap">
+          <img src="profile.jpg" class="avatar" alt="Hafeezullah Ehsan" style="object-fit:cover;">
+          <div class="avatar-badge">🤖</div>
+        </div>
+        <div class="p-name">Hafeezullah Ehsan</div>
+        <div class="p-role">Machine Learning Engineer</div>
+        <div class="p-org">Open to opportunities</div>
+        <div class="social-row">
+          <a href="mailto:Hafeezullahehsan136@gmail.com" title="Email" aria-label="Email">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
+          </a>
+          <a href="https://github.com/Hafeezullah-Ehsan" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.1.82-.26.82-.58v-2c-3.34.73-4.04-1.6-4.04-1.6-.55-1.4-1.34-1.77-1.34-1.77-1.1-.75.08-.74.08-.74 1.2.09 1.84 1.24 1.84 1.24 1.08 1.84 2.83 1.31 3.52 1 .1-.79.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.49 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.58A12 12 0 0 0 12 .5z"/></svg>
+          </a>
+          <a href="https://linkedin.com/in/hafeezullah-ehsan" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+          </a>
+          <a href="tel:+923468344474" title="Phone" aria-label="Phone">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="about-col">
+        <h2>About Me</h2>
+        <p>Hafeezullah Ehsan is a computer science graduate specializing in machine learning and natural language processing. He builds systems that turn messy, unstructured text into something a machine can reason about — from a retrieval-augmented chatbot to a supervised text classifier — and ships them as working applications, not just notebooks.</p>
+        <p>He's currently deepening his fundamentals in NLP and supervised learning while looking for an entry-level ML role where he can work across the full pipeline: data, modeling, and deployment.</p>
+        <a class="cv-btn" href="Hafeezullah_Ehsan_Resume.pdf" download>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download CV
+        </a>
+
+        <div class="mini-cols">
+          <div>
+            <h3>Interests</h3>
+            <ul>
+              <li><span class="dot"></span>Retrieval-Augmented Generation</li>
+              <li><span class="dot"></span>NLP &amp; Text Classification</li>
+              <li><span class="dot"></span>Applied ML for Social Good</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Education</h3>
+            <ul>
+              <li><span class="cap">🎓</span>
+                <span>BSc Computer Science<br><span style="color:rgba(255,255,255,0.6); font-size:0.85rem;">Pak-Austria Institute of Applied Sciences &amp; Technology, 2025</span></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <section id="demo-section">
+        <div class="section-head"><span class="num mono">00</span><h2>Try It</h2></div>
+        <div class="section-rule"></div>
+        <div class="demo">
+          <div class="demo-label mono">a tiny retrieval demo — search my skills &amp; projects the way a RAG pipeline would</div>
+          <input type="text" id="query" placeholder="try: chatbot, spam, vectors, data cleaning…" autocomplete="off">
+          <div class="demo-results" id="results"></div>
+          <div class="demo-hint">Ranked by keyword overlap — a simplified stand-in for the embedding search used in the project below.</div>
+        </div>
+      </section>
+
+      <section id="skills">
+        <div class="section-head"><span class="num mono">01</span><h2>Skills</h2></div>
+        <div class="section-rule"></div>
+        <div class="skill-block reveal">
+          <span class="tag-label">ML &amp; NLP</span>
+          <div class="skill-pills">
+            <span class="skill-pill">Scikit-learn</span>
+            <span class="skill-pill">Naive Bayes</span>
+            <span class="skill-pill">TF-IDF Vectorization</span>
+            <span class="skill-pill">Sentence Transformers</span>
+            <span class="skill-pill">FAISS (Vector Search)</span>
+            <span class="skill-pill">Retrieval-Augmented Generation</span>
+            <span class="skill-pill">Model Evaluation</span>
+            <span class="skill-pill">Supervised Learning</span>
+            <span class="skill-pill">Statistics</span>
+            <span class="skill-pill">NumPy</span>
+            <span class="skill-pill">Pandas</span>
+          </div>
+        </div>
+        <div class="skill-block reveal">
+          <span class="tag-label">FRAMEWORKS &amp; TOOLS</span>
+          <div class="skill-pills">
+            <span class="skill-pill">Flask</span>
+            <span class="skill-pill">Streamlit</span>
+            <span class="skill-pill">REST APIs</span>
+            <span class="skill-pill">LLM API Integration (Groq)</span>
+            <span class="skill-pill">Git</span>
+            <span class="skill-pill">VS Code</span>
+            <span class="skill-pill">Jupyter Notebook</span>
+          </div>
+        </div>
+        <div class="skill-block reveal">
+          <span class="tag-label">LANGUAGES</span>
+          <div class="skill-pills">
+            <span class="skill-pill">Python</span>
+            <span class="skill-pill">SQL</span>
+          </div>
+        </div>
+        <div class="skill-block reveal">
+          <span class="tag-label">CORE</span>
+          <div class="skill-pills">
+            <span class="skill-pill">Data Preprocessing &amp; Cleaning</span>
+            <span class="skill-pill">Data Visualization</span>
+            <span class="skill-pill">End-to-End ML Workflow</span>
+            <span class="skill-pill">Cross-Functional Collaboration</span>
+            <span class="skill-pill">Problem Solving</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience">
+        <div class="section-head"><span class="num mono">02</span><h2>Experience</h2></div>
+        <div class="section-rule"></div>
+        <div class="timeline">
+          <div class="tl-item reveal">
+            <div class="tl-date">Jul 2024 — Aug 2024</div>
+            <div class="tl-role">Data Science and ML Intern</div>
+            <div class="tl-org">Avancod (Pvt) Ltd · Islamabad, Pakistan</div>
+            <ul>
+              <li>Performed data preprocessing and cleaning on raw datasets using NumPy and pandas to prepare structured inputs for supervised learning model training.</li>
+              <li>Implemented and evaluated machine learning algorithms, applying scikit-learn and statistical evaluation techniques to assess performance.</li>
+              <li>Created data visualizations to communicate patterns and insights from processed datasets to the team.</li>
+            </ul>
+          </div>
+          <div class="tl-item reveal">
+            <div class="tl-date">Feb 2024 — Mar 2024</div>
+            <div class="tl-role">Data Analytics and Visualization Job Simulation</div>
+            <div class="tl-org">Forage (Accenture) · Remote, United States</div>
+            <ul>
+              <li>Simulated a data analyst role advising a social media client, cleaning, modeling, and analyzing 7 datasets to identify content trends.</li>
+              <li>Prepared a presentation deck to communicate technical findings, key insights, and recommendations to stakeholders.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <div class="section-head"><span class="num mono">03</span><h2>Projects</h2></div>
+        <div class="section-rule"></div>
+
+        <div class="project reveal">
+          <h3>Student Mental Health Support Chatbot</h3>
+          <div class="tags">
+            <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">FAISS</span><span class="tag">Sentence-Transformers</span><span class="tag">Groq LLM API</span>
+          </div>
+          <ul>
+            <li>Built a retrieval-augmented generation (RAG) chatbot that preprocesses a student Q&amp;A knowledge base, retrieves relevant context, and answers student mental health queries.</li>
+            <li>Generated semantic embeddings with Sentence-Transformers (all-mpnet-base-v2) and indexed them with FAISS for fast similarity-based retrieval.</li>
+            <li>Integrated an LLM via the Groq API to produce context-aware, conversational responses grounded in retrieved data.</li>
+            <li>Built a Flask backend connecting the retrieval pipeline, LLM inference, and frontend into a complete end-to-end system.</li>
+          </ul>
+          <a class="link" href="https://github.com/Hafeezullah-Ehsan/Student-Mental-Health-Chatbot" target="_blank" rel="noopener">View on GitHub →</a>
+        </div>
+
+        <div class="project alt reveal">
+          <h3>SMS Spam Classifier</h3>
+          <div class="tags">
+            <span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">Streamlit</span>
+          </div>
+          <ul>
+            <li>Built a supervised text classification system to detect spam messages, achieving strong accuracy on held-out test data.</li>
+            <li>Implemented TF-IDF vectorization to transform unstructured text into numerical features for training and evaluation.</li>
+            <li>Trained and evaluated a Naive Bayes model using precision, recall, and confusion matrix analysis.</li>
+            <li>Deployed the model as an interactive Streamlit app for real-time spam detection.</li>
+          </ul>
+          <a class="link" href="https://github.com/Hafeezullah-Ehsan" target="_blank" rel="noopener">View on GitHub →</a>
+        </div>
+
+        <div class="project reveal">
+          <h3>Bike Sales Analysis (Excel)</h3>
+          <div class="tags">
+            <span class="tag">Excel</span><span class="tag">Pivot Tables</span><span class="tag">Data Visualization</span>
+          </div>
+          <ul>
+            <li>Analyzed bike sales data across multiple sheets to uncover sales trends, customer preferences, and performance metrics.</li>
+            <li>Built pivot tables and interactive charts to summarize data efficiently and highlight seasonal patterns.</li>
+            <li>Identified top-selling bikes and categories, and translated findings into actionable business recommendations.</li>
+          </ul>
+          <a class="link" href="https://github.com/Hafeezullah-Ehsan/bike-buyers-analysis-using-excel" target="_blank" rel="noopener">View on GitHub →</a>
+        </div>
+      </section>
+
+      <section id="education">
+        <div class="section-head"><span class="num mono">04</span><h2>Education &amp; Certifications</h2></div>
+        <div class="section-rule"></div>
+        <div class="edu-item reveal">
+          <div class="deg">Bachelor of Science, Computer Science</div>
+          <div class="school">Pak-Austria Institute of Applied Sciences and Technology · 2025</div>
+        </div>
+
+        <ul class="cert-list reveal">
+          <li>Associate Data Engineer – SQL <span class="cert-date">DataCamp · Nov 2025</span></li>
+          <li>Supervised Learning with scikit-learn <span class="cert-date">DataCamp · Aug 2026</span></li>
+          <li>Natural Language Processing (NLP) in Python <span class="cert-date">DataCamp · Aug 2026</span></li>
+          <li>Data Analytics and Visualization Job Simulation <span class="cert-date">Forage / Accenture North America · Mar 2024</span></li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    Built by Hafeezullah Ehsan. Reach out anytime — <a href="mailto:Hafeezullahehsan136@gmail.com">Hafeezullahehsan136@gmail.com</a>
+  </footer>
+
+<script>
+  const docs = [
+    { name: "RAG Mental Health Chatbot", keywords: "chatbot rag retrieval augmented generation faiss sentence transformers embeddings vector search groq llm student mental health flask" },
+    { name: "SMS Spam Classifier", keywords: "spam classifier text classification tfidf naive bayes scikit learn streamlit precision recall confusion matrix" },
+    { name: "Data Preprocessing (Avancod)", keywords: "data preprocessing cleaning numpy pandas supervised learning model evaluation visualization statistics" },
+    { name: "ML & NLP Skills", keywords: "python sql scikit learn nlp tfidf sentence transformers faiss vector search statistics numpy pandas" },
+    { name: "Tools & Frameworks", keywords: "flask streamlit rest api llm groq git vscode jupyter notebook" },
+    { name: "Bike Sales Analysis (Excel)", keywords: "excel pivot tables charts data analysis sales trends customer preferences business insights visualization" }
+  ];
+
+  const input = document.getElementById('query');
+  const results = document.getElementById('results');
+
+  function score(query, doc) {
+    const q = query.toLowerCase().split(/\s+/).filter(Boolean);
+    if (q.length === 0) return 0;
+    const words = doc.keywords.split(/\s+/);
+    let hits = 0;
+    q.forEach(term => { if (words.some(w => w.includes(term) || term.includes(w))) hits++; });
+    return hits / q.length;
+  }
+
+  function render(query) {
+    results.innerHTML = '';
+    if (!query.trim()) return;
+    const ranked = docs.map(d => ({ ...d, s: score(query, d) })).filter(d => d.s > 0).sort((a, b) => b.s - a.s).slice(0, 3);
+    if (ranked.length === 0) {
+      results.innerHTML = '<div class="demo-hint">No close match — try a term like "vectors" or "spam".</div>';
+      return;
+    }
+    ranked.forEach(d => {
+      const pct = Math.round(d.s * 100);
+      const row = document.createElement('div');
+      row.className = 'result-row';
+      row.innerHTML = `<div class="result-name">${d.name}</div><div class="bar-track"><div class="bar-fill" style="width:${pct}%"></div></div><div class="result-score">${pct}%</div>`;
+      results.appendChild(row);
+    });
+  }
+  input.addEventListener('input', e => render(e.target.value));
+
+  document.getElementById('searchBtn').addEventListener('click', () => {
+    document.getElementById('demo-section').scrollIntoView({ behavior: 'smooth' });
+    input.focus();
+  });
+
+  const themeBtn = document.getElementById('themeBtn');
+  themeBtn.addEventListener('click', () => {
+    const body = document.body;
+    body.dataset.theme = body.dataset.theme === 'dark' ? 'light' : 'dark';
+  });
+
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => revealObserver.observe(el));
+</script>
+
+</body>
+</html>
